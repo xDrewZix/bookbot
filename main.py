@@ -6,6 +6,7 @@ def main():
     text = get_book_text(book_path)
     count_letter = count_each_letter(text)
     list_dict = dict_to_list(count_letter)
+    list_dict.sort(reverse=True, key=sort_on)
     print(list_dict)
     
 
@@ -13,6 +14,9 @@ def get_book_text(path):
 
     with open(path) as f:
         return f.read()
+
+def sort_on(dict):
+    return dict["count"]
 
 def count_words(text):
     text = text.split()
