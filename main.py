@@ -7,7 +7,8 @@ def main():
     count_letter = count_each_letter(text)
     list_dict = dict_to_list(count_letter)
     list_dict.sort(reverse=True, key=sort_on)
-    print(list_dict)
+    sorted_dict = list_to_dict(list_dict)
+    print(sorted_dict)
     
 
 def get_book_text(path):
@@ -29,6 +30,12 @@ def dict_to_list(dict):
         add_dict = {'letter': letter, 'count': count}
         list_of_dicts.append(add_dict)
     return list_of_dicts
+
+def list_to_dict(listdict):
+    sorted_dict = {}
+    for i in listdict:
+        sorted_dict[i['letter']] = i['count']
+    return sorted_dict
 
 def count_each_letter(text):
     alphabet = list(string.ascii_lowercase)
