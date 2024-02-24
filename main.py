@@ -1,10 +1,13 @@
-   
+import string   
+
 def main():
 
     book_path = "books/Frankenstein.txt"
     text = get_book_text(book_path)
     count_letter = count_each_letter(text)
-    print(text)
+    list_dict = dict_to_list(count_letter)
+    print(list_dict)
+    
 
 def get_book_text(path):
 
@@ -15,6 +18,13 @@ def count_words(text):
     text = text.split()
     count = len(text)
     return count
+
+def dict_to_list(dict):
+    list_of_dicts = []
+    for letter, count in dict.items():
+        add_dict = {'letter': letter, 'count': count}
+        list_of_dicts.append(add_dict)
+    return list_of_dicts
 
 def count_each_letter(text):
     alphabet = list(string.ascii_lowercase)
