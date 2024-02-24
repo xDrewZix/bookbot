@@ -8,7 +8,9 @@ def main():
     list_dict = dict_to_list(count_letter)
     list_dict.sort(reverse=True, key=sort_on)
     sorted_dict = list_to_dict(list_dict)
-    print(sorted_dict)
+
+    for letter, count in sorted_dict.items():
+        print(f"The '{letter}' character was found {count} times")
     
 
 def get_book_text(path):
