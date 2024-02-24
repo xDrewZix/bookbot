@@ -2,8 +2,12 @@
 def main():
 
     book_path = "books/Frankenstein.txt"
-    
-    with open("books/Frankenstein.txt") as f:
-        file_contents = f.read()
+    text = get_book_text(book_path)
+    print(text)
+
+def get_book_text(path):
+
+    with open(path) as f:
+        return f.read()
 
 main()
